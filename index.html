@@ -1,59 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <title>Website under maintenance</title>
-    </head>
-    <body>
-        <div id="svg-container">
-            <img id="svg-1" height="70%" width="70%" viewBox="0 0 30 30" 
-            xmlns="http://www.w3.org/2000/svg" version="1.1" src="ressources/maintenance.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" type="image/jpg" href="favicon.ico" />
+
+    <link href="main.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="main.js"></script>
+
+    <title>Bachir Amiri | Full stack web developer</title>
+  </head>
+  <body>
+    <!-- START NAV -->
+
+    <nav id="navbar" class="nav">
+      <a class="nav-name" href="https://bachir.dev"
+        >Bachir
+        <p>Amiri</p></a
+      >
+
+      <ul class="nav-list">
+        <li>
+          <a class="first after" href="#welcome-section">About</a>
+        </li>
+        <li>
+          <a class="first after" href="#contact">Contact</a>
+        </li>
+
+        <div class="container" data-state="day">
+          <div class="toggle--wrapper">
+            <input type="checkbox" id="checkbox" />
+            <div class="toggle--knob"></div>
+          </div>
         </div>
-        <H2 class="announce"> Website under construction <span class= "blinking-cursor">|</span></H2>
-    </body>
+      </ul>
+    </nav>
+
+    <!-- END NAV -->
+
+    <!-- START WELCOME SECTION -->
+
+    <section id="welcome-section" class="welcome-section">
+      <div id="center">
+        <div id="welcome_content">
+          <h1>Hey i'm Bachir</h1>
+          <p id="desc">
+            a full stack web developer based in Paris. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div id="welcome_media"><img src="ressources/web_developer.svg" /></div>
+      </div>
+      <a class="scroll-down" href="#contact"></a>
+
+    </section>
+    <!-- END WELCOME SECTION -->
+
+    <!-- START CONTACT SECTION -->
+
+    <section id="contact" class="contact-section">
+      <div class="contact-section-header">
+        <h2>Where to find me ...</h2>
+        <p>Feel free to come say hi !</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:bachir.amiri.pro@gmail.com" class="btn contact-details">
+          <i class="far fa-envelope"></i> Mail
+        </a>
+        <a
+          id="profile-link"
+          href="https://github.com/BachirAmiri"
+          target="_blank"
+          class="btn contact-details"
+          ><i class="fab fa-github"></i> GitHub
+        </a>
+        <a
+          href="https://fr.linkedin.com/in/bachir-amiri"
+          target="_blank"
+          class="btn contact-details"
+          ><i class="fab fa-linkedin"></i> Linkedin
+        </a>
+      </div>
+    </section>
+
+    <!-- END CONTACT SECTION -->
+
+    <!-- START FOOTER SECTION -->
+
+    <footer>
+      <p>
+        Made with <i class="fas fa-pizza-slice"></i> and
+        <i class="fas fa-music"></i>
+      </p>
+      <p>
+        &copy; 2020 Bachir Amiri
+      </p>
+    </footer>
+
+    <!-- END FOOTER SECTION -->
+  </body>
 </html>
 
-<style>
+<script>
+  const elToggle = document.querySelector(".toggle--wrapper");
+  const elApp = document.querySelector(".container");
 
-    html, body {
-        height: 80%;  
-        background-color: #313a4e;
-        font-family: 'Roboto', sans-serif;
-    }
-
-    #svg-container {
-        display: flex;
-        align-items: center;
-        height: 100%;
-    }
-
-    #svg-1 {
-        margin: 0 auto;
-        display: block;
-    }
-
-    .announce {
-        color : #FFCC66;
-        text-align: center;
-        height: 10px;
-    }
-
-    @keyframes blink {
-        from, to {
-            color: transparent;
+  const machine = {
+    initial: elApp.dataset.state, //'day',
+    states: {
+      day: {
+        on: {
+          TOGGLE: "night"
         }
-        50% {
-            color: #FFCC66;
+      },
+      night: {
+        on: {
+          TOGGLE: "day"
         }
+      }
     }
+  };
 
-    .blinking-cursor {
-        animation: 1s blink step-end infinite;
-        line-height: 23px;
+  elToggle.addEventListener("click", e => {
+    const currentState = elApp.dataset.state;
+    const nextState = machine.states[currentState].on.TOGGLE;
+    toggleState(nextState);
+    if (nextState === "night") {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
     }
+  });
 
-</style>
+  const toggleState = state => {
+    elApp.dataset.state = state;
+  };
+</script>
