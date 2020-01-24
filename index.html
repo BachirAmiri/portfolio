@@ -45,7 +45,7 @@
           <a class="first after" href="#contact">Contact</a>
         </li>
 
-        <div class="container" data-state="day">
+        <div class="container" data-state="sun">
           <div class="toggle--wrapper">
             <input type="checkbox" id="checkbox" />
             <div class="toggle--knob"></div>
@@ -71,7 +71,6 @@
         <div id="welcome_media"><img src="ressources/web_developer.svg" /></div>
       </div>
       <a class="scroll-down" href="#contact"></a>
-
     </section>
     <!-- END WELCOME SECTION -->
 
@@ -121,33 +120,49 @@
 </html>
 
 <script>
+  if (typeof localStorage != "undefined" && localStorage.getItem("theme") != null ) {
+    document.documentElement.setAttribute("data-theme", localStorage.getItem("theme"));
+    document.documentElement.setAttribute("data-state", localStorage.getItem("toggle"));
+  }
+
   const elToggle = document.querySelector(".toggle--wrapper");
   const elApp = document.querySelector(".container");
 
   const machine = {
-    initial: elApp.dataset.state, //'day',
+    initial:
+      typeof localStorage != "undefined"
+        ? localStorage.getItem("toggle")
+        : elApp.dataset.state, //'day',
     states: {
-      day: {
+      sun: {
         on: {
-          TOGGLE: "night"
+          TOGGLE: "moon"
         }
       },
-      night: {
+      moon: {
         on: {
-          TOGGLE: "day"
+          TOGGLE: "sun"
         }
       }
     }
   };
 
   elToggle.addEventListener("click", e => {
-    const currentState = elApp.dataset.state;
+    const currentState = typeof localStorage != "undefined"
+        ? localStorage.getItem("toggle")
+        : elApp.dataset.state;
     const nextState = machine.states[currentState].on.TOGGLE;
     toggleState(nextState);
-    if (nextState === "night") {
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
+    if (nextState === "sun") {
       document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.setAttribute("data-state", "sun");
+      localStorage.setItem("theme", "dark");
+      localStorage.setItem("toggle", "sun");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      document.documentElement.setAttribute("data-state", "moon");
+      localStorage.setItem("theme", "light");
+      localStorage.setItem("toggle", "moon");
     }
   });
 

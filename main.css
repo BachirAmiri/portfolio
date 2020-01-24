@@ -509,10 +509,10 @@ input:checked + .slider:before {
     background-color 300ms ease-in;
 }
 
-[data-state="night"] .toggle--knob {
+[data-state="moon"] .toggle--knob {
   transform: translateX(100%) rotate(25deg);
 }
-[data-state="night"] .toggle--knob::before {
+[data-state="moon"] .toggle--knob::before {
   transform: translateX(100%) rotate(45deg);
   background-color: var(--second-color);
 }
