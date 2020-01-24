@@ -120,9 +120,18 @@
 </html>
 
 <script>
-  if (typeof localStorage != "undefined" && localStorage.getItem("theme") != null ) {
-    document.documentElement.setAttribute("data-theme", localStorage.getItem("theme"));
-    document.documentElement.setAttribute("data-state", localStorage.getItem("toggle"));
+  if (
+    typeof localStorage != "undefined" &&
+    localStorage.getItem("theme") != null
+  ) {
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.getItem("theme")
+    );
+    document.documentElement.setAttribute(
+      "data-state",
+      localStorage.getItem("toggle")
+    );
   }
 
   const elToggle = document.querySelector(".toggle--wrapper");
@@ -148,7 +157,9 @@
   };
 
   elToggle.addEventListener("click", e => {
-    const currentState = typeof localStorage != "undefined"
+    const currentState =
+      typeof localStorage != "undefined" &&
+      localStorage.getItem("toggle") != null
         ? localStorage.getItem("toggle")
         : elApp.dataset.state;
     const nextState = machine.states[currentState].on.TOGGLE;
