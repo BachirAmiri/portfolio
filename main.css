@@ -7,14 +7,6 @@
   --main-background: #17223b;
 }
 
-/*
-[data-theme="light"] {
-  --main-color: #ffd580;
-  --second-background: #2f3b54;
-  --main-background: #1d2433;
-  --second-color: #ff7f50;
-}*/
-
 [data-theme="light"] {
   --main-text: #112d4e;
   --main-color: #3f72af;
@@ -43,16 +35,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* A few media query to set some font sizes at different screen sizes.
-   * This helps automate a bit of responsiveness.
-   * The trick is to use the rem unit for size values, margin and padding.
-   * Because rem is relative to the document font size
-   * when we scale up or down the font size on the document
-   * it will affect all properties using rem units for the values.
-  */
-
-/* I am using the em unit for breakpoints
-   * The calculation is the following
+/*  The calculation is the following
    * screen size divided by browser base font size
    * As an example: a breakpoint at 980px
    * 980px / 16px = 61.25em
@@ -156,6 +139,16 @@ img {
   color: var(--main-color);
 }
 
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2.4rem;
+}
+
+.nav-list a:hover {
+  color: var(--main-color);
+}
+
 @media (max-width: 28.75em) {
   .nav {
     justify-content: center;
@@ -198,15 +191,22 @@ img {
   }
 }
 
-.nav-list a {
-  display: block;
-  font-size: 2.2rem;
-  padding: 2.4rem;
-}
+@media (max-width: 20em) { /* special rule for old mobile  */
+  .navbar a {
+    font-size: 2rem;
+  }
 
-.nav-list a:hover {
-  /* background: var(--second-background); */
-  color: var(--main-color);
+  .nav-name p {
+    font-size: 2.3rem;
+  }
+
+  .nav-name {
+    font-size: 2.3rem;
+  }
+
+  .nav-list a {
+    font-size: 2.3rem;
+  }
 }
 
 /* Welcome section */
@@ -271,6 +271,31 @@ img {
 
   #welcome_media img {
     height: 240px;
+    width: unset;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 20em) { /* special rule for old mobile  */
+  #center {
+    flex-direction: column;
+    flex-grow: unset;
+  }
+
+  #welcome_content {
+    width: 100%;
+  }
+
+  #welcome_media {
+    margin-left: inherit;
+    margin-top: 3rem;
+  }
+
+  #welcome_media img {
+    height: 200px;
     width: unset;
   }
 
@@ -356,6 +381,22 @@ footer i {
     flex-direction: column;
     text-align: center;
   }
+
+  footer > p {
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer > p {
+    margin: 1rem;
+  }
+  
 }
 
 .nav-list a,
@@ -509,10 +550,10 @@ input:checked + .slider:before {
     background-color 300ms ease-in;
 }
 
-[data-state="night"] .toggle--knob {
+[data-state="moon"] .toggle--knob {
   transform: translateX(100%) rotate(25deg);
 }
-[data-state="night"] .toggle--knob::before {
+[data-state="moon"] .toggle--knob::before {
   transform: translateX(100%) rotate(45deg);
   background-color: var(--second-color);
 }
