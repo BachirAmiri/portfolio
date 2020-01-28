@@ -1,18 +1,18 @@
 /* Custom properties/variables  */
 :root {
-  --main-text: #f0f0f0;
-  --main-color: #ffd580;
-  --second-color: #e6a555;
-  --second-background: #263859;
-  --main-background: #17223b;
+  --primary-text: #f0f0f0;
+  --primary-color: #ffd580;
+  --secondary-color: #e6a555;
+  --primary-background: #17223b;
+  --secondary-background: #263859;
 }
 
 [data-theme="light"] {
-  --main-text: #112d4e;
-  --main-color: #3f72af;
-  --second-color: #2c4b98;
-  --second-background: #f9f7f7;
-  --main-background: #dbe2ef;
+  --primary-text: #112d4e;
+  --primary-color: #3f72af;
+  --secondary-color: #2c4b98;
+  --primary-background: #dbe2ef;
+  --secondary-background: #f9f7f7;
 }
 
 /* box-sizing and font sizing */
@@ -69,7 +69,7 @@ body {
   font-size: 1.8rem; /* 18px */
   font-weight: 400;
   line-height: 1.4;
-  color: var(--main-text);
+  color: var(--primary-text);
 }
 
 h1,
@@ -94,7 +94,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: var(--main-text);
+  color: var(--primary-text);
 }
 
 img {
@@ -111,8 +111,8 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--main-background);
-  box-shadow: 0 2px 0 var(--main-color);
+  background: var(--primary-background);
+  box-shadow: 0 2px 0 var(--primary-color);
   z-index: 10;
 }
 
@@ -126,17 +126,17 @@ img {
   display: block;
   font-size: 3rem;
   padding: 2rem;
-  color: var(--main-color);
+  color: var(--primary-color);
   margin-left: 3rem;
 }
 
 .nav-name p {
-  color: var(--main-text);
+  color: var(--primary-text);
   display: inline;
 }
 
 .nav-name:hover p {
-  color: var(--main-color);
+  color: var(--primary-color);
 }
 
 .nav-list a {
@@ -146,7 +146,7 @@ img {
 }
 
 .nav-list a:hover {
-  color: var(--main-color);
+  color: var(--primary-color);
 }
 
 @media (max-width: 28.75em) {
@@ -191,7 +191,8 @@ img {
   }
 }
 
-@media (max-width: 20em) { /* special rule for old mobile  */
+@media (max-width: 20em) {
+  /* special rule for old mobile  */
   .navbar a {
     font-size: 2rem;
   }
@@ -218,7 +219,7 @@ img {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: var(--main-background);
+  background-color: var(--primary-background);
 }
 
 #center {
@@ -251,7 +252,7 @@ img {
 .welcome-section p {
   font-size: 2rem;
   font-style: italic;
-  color: var(--main-color);
+  color: var(--primary-color);
 }
 
 @media (max-width: 28.75em) {
@@ -279,7 +280,8 @@ img {
   }
 }
 
-@media (max-width: 20em) { /* special rule for old mobile  */
+@media (max-width: 20em) {
+  /* special rule for old mobile  */
   #center {
     flex-direction: column;
     flex-grow: unset;
@@ -314,7 +316,7 @@ img {
   width: 100%;
   height: 80vh;
   padding: 0 2rem;
-  background: var(--main-background);
+  background: var(--primary-background);
 }
 
 .contact-section-header > h2 {
@@ -364,8 +366,8 @@ footer {
   display: flex;
   justify-content: space-evenly;
   padding: 2rem;
-  background: var(--main-background);
-  border-top: 4px solid var(--main-color);
+  background: var(--primary-background);
+  border-top: 4px solid var(--primary-color);
 }
 
 footer > p {
@@ -396,7 +398,6 @@ footer i {
   footer > p {
     margin: 1rem;
   }
-  
 }
 
 .nav-list a,
@@ -429,7 +430,7 @@ footer i {
   height: 5px;
   height: 0.35rem;
   width: 0;
-  background: var(--main-color);
+  background: var(--primary-color);
 }
 .nav-list a.first:after {
   left: 0;
@@ -480,7 +481,7 @@ footer i {
 }
 
 input:checked + .slider {
-  background-color: var(--main-color);
+  background-color: var(--primary-color);
 }
 
 input:checked + .slider:before {
@@ -515,7 +516,7 @@ input:checked + .slider:before {
   position: relative;
   transition: background-color 300ms ease-in;
   box-shadow: 3px 3px 20px -6px rgba(0, 0, 0, 0.5);
-  background-color: var(--second-color);
+  background-color: var(--secondary-color);
   z-index: 1;
 }
 
@@ -538,7 +539,7 @@ input:checked + .slider:before {
 .toggle--knob::before {
   content: "";
   display: block;
-  background-color: var(--second-color);
+  background-color: var(--secondary-color);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -555,7 +556,7 @@ input:checked + .slider:before {
 }
 [data-state="moon"] .toggle--knob::before {
   transform: translateX(100%) rotate(45deg);
-  background-color: var(--second-color);
+  background-color: var(--secondary-color);
 }
 
 /* Scroll down arrow */
@@ -572,8 +573,8 @@ input:checked + .slider:before {
   text-shadow: 0;
   width: 13px;
   height: 13px;
-  border-bottom: 2px solid var(--main-text);
-  border-right: 2px solid var(--main-text);
+  border-bottom: 2px solid var(--primary-text);
+  border-right: 2px solid var(--primary-text);
   z-index: 9;
   left: 50%;
   -webkit-transform: translate(-50%, 0%) rotate(45deg);
