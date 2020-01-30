@@ -28,6 +28,13 @@
   </head>
   <body>
 
+    <!-- SCROLL TOP FIXED-->
+    <button onclick="topFunction()" id="scrollTop" title="Go to top">
+      <i class="fas fa-chevron-circle-up"></i>
+    </button>
+
+    <!-- END SCROLL TOP-->
+
     <!-- START NAV -->
 
     <nav id="navbar" class="nav">
@@ -62,9 +69,9 @@
         <div id="welcome_content">
           <h1>Hey i'm Bachir</h1>
           <p id="desc">
-            a full stack web developer based in Paris. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.
+            A full stack web developer based in Paris. I'm curently focusing
+            especially on front-end and PWA. You can check my Resumé
+            <a href="#contact">here</a>.
           </p>
         </div>
         <div id="welcome_media"><img src="ressources/web_developer.svg" /></div>
@@ -98,6 +105,12 @@
           class="btn contact-details"
           ><i class="fab fa-linkedin"></i> Linkedin
         </a>
+        <a
+          href="ressources/cv/CV.pdf"
+          target="_blank"
+          class="btn contact-details"
+          ><i class="far fa-file-alt"></i> Resumé
+        </a>
       </div>
     </section>
 
@@ -116,11 +129,35 @@
     </footer>
 
     <!-- END FOOTER SECTION -->
-    
   </body>
 </html>
 
 <script>
+  /* Scroll top */
+
+  var mybutton = document.getElementById("scrollTop");
+
+  window.onscroll = function() {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  /* Theme restore and toggle  */
   if (
     typeof localStorage != "undefined" &&
     localStorage.getItem("theme") != null
