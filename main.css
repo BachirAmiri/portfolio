@@ -255,6 +255,10 @@ img {
   color: var(--primary-color);
 }
 
+#desc a {
+  font-weight: bold;
+}
+
 @media (max-width: 28.75em) {
   #center {
     flex-direction: column;
