@@ -320,7 +320,7 @@ img {
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 /* Contact section */
@@ -368,6 +368,16 @@ img {
 @media (max-width: 28.75em) {
   .contact-section-header > h2 {
     font-size: 4rem;
+  }
+
+  .contact-links {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 20em) {
+  .contact-section-header > h2 {
+    font-size: 3rem;
   }
 
   .contact-links {
