@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="developer, web, Bachir AMIRI, paris, full stack, scrum master" />
+    <meta name="author" content="Bachir AMIRI" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Développeur web full Stack, Scrum master" />
 
     <link
       rel="stylesheet"
@@ -27,7 +30,6 @@
     <title>Bachir Amiri | Développeur Web Full Stack</title>
   </head>
   <body>
-
     <!-- SCROLL TOP FIXED-->
     <button onclick="topFunction()" id="scrollTop" title="Go to top">
       <i class="fas fa-chevron-circle-up"></i>
@@ -53,7 +55,7 @@
 
         <div class="container" data-state="sun">
           <div class="toggle--wrapper">
-            <input type="checkbox" id="checkbox" />
+            <input type="checkbox" id="checkbox" title="" />
             <div class="toggle--knob"></div>
           </div>
         </div>
@@ -69,12 +71,14 @@
         <div id="welcome_content">
           <h1>Hey, je suis Bachir</h1>
           <p id="desc">
-            Développeur web full stack établi à Paris. Je me focalise actuellement
-            sur le front-end et les PWA. Rendez vous 
+            Développeur web full stack établi à Paris. Je me focalise
+            actuellement sur le front-end et les PWA. Rendez vous
             <a href="#contact">ici</a> pour plus d'informations.
           </p>
         </div>
-        <div id="welcome_media"><img src="ressources/web_developer.svg" /></div>
+        <div id="welcome_media">
+          <img alt="welcome" src="ressources/web_developer.svg" />
+        </div>
       </div>
       <a class="scroll-down" href="#contact"></a>
     </section>
@@ -137,7 +141,7 @@
 
   var mybutton = document.getElementById("scrollTop");
 
-  window.onscroll = function() {
+  window.onscroll = function () {
     scrollFunction();
   };
 
@@ -183,18 +187,18 @@
     states: {
       sun: {
         on: {
-          TOGGLE: "moon"
-        }
+          TOGGLE: "moon",
+        },
       },
       moon: {
         on: {
-          TOGGLE: "sun"
-        }
-      }
-    }
+          TOGGLE: "sun",
+        },
+      },
+    },
   };
 
-  elToggle.addEventListener("click", e => {
+  elToggle.addEventListener("click", (e) => {
     const currentState =
       typeof localStorage != "undefined" &&
       localStorage.getItem("toggle") != null
@@ -215,7 +219,7 @@
     }
   });
 
-  const toggleState = state => {
+  const toggleState = (state) => {
     elApp.dataset.state = state;
   };
 </script>
