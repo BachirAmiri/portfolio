@@ -604,7 +604,6 @@ input:checked + .slider:before {
   border-bottom: 2px solid var(--primary-text);
   border-right: 2px solid var(--primary-text);
   z-index: 9;
-  left: 50%;
   -webkit-transform: translate(-50%, 0%) rotate(45deg);
   -moz-transform: translate(-50%, 0%) rotate(45deg);
   transform: translate(-50%, 0%) rotate(45deg);
