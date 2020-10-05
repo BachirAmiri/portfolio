@@ -12,7 +12,7 @@
   --primary-color: #3f72af;
   --secondary-color: #2c4b98;
   --primary-background: #dbe2ef;
-  --secondary-background: #f9f7f7;
+  --secondary-background: #c9d4e6;
 }
 
 /* box-sizing and font sizing */
@@ -323,6 +323,139 @@ img {
     font-size: 3rem;
   }
 }
+
+/* Skills section */ 
+
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--secondary-background);
+}
+
+#center {
+  flex-direction: row;
+  flex-grow: 1;
+  display: flex;
+  width: 86%;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1240px;
+}
+
+#skills_content {
+  order: 2;
+  width: 50%;
+}
+
+#skills_media {
+  order: 1;
+  margin-left: 0;
+  margin-right: auto;
+  max-height: 1000px;
+}
+
+#skills_media img {
+  height: 400px;
+  width: unset;
+}
+
+.skills-section p {
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--primary-color);
+}
+
+#skills-desc {
+  margin-bottom: 20px;
+}
+
+.dev-icons {
+  padding-left: 0;
+  list-style: none;
+  font-size: 3rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.dev-icons li{
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.dev-icons li p{
+  font-size: 11px;
+}
+
+@media (max-width: 28.75em) {
+  #center {
+    flex-direction: column;
+    flex-grow: unset;
+  }
+
+  #skills_content {
+    width: 100%;
+    order: 2;
+  }
+
+  #skills_media {
+    margin-left: inherit;
+    margin-top: 3rem;
+    order: 1;
+  }
+
+  #skills_media img {
+    height: 240px;
+    width: 100% !important;
+  }
+
+  .dev-icons li p{
+    font-size: 10px;
+  }
+
+  #skills-desc {
+    font-size: 18px;
+  }
+    
+}
+
+@media (max-width: 20em) {
+  /* special rule for old mobile  */
+  #center {
+    flex-direction: column;
+    flex-grow: unset;
+  }
+
+  #skills_content {
+    width: 100%;
+  }
+
+  #skills_media {
+    margin-left: inherit;
+    margin-top: 3rem;
+  }
+
+  #skills_media img {
+    height: 200px;
+    width: unset;
+  }
+
+  .dev-icons li p{
+    font-size: 9px;
+  }
+
+  #skills-desc {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+}
+
 /* Contact section */
 
 .contact-section {
