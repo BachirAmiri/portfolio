@@ -65,7 +65,7 @@ html {
 /* Base styles */
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.8rem; /* 18px */
   font-weight: 400;
   line-height: 1.4;
@@ -390,6 +390,10 @@ img {
 
 .dev-icons li p{
   font-size: 11px;
+}
+
+.dev-icons li i:hover, ion-icon:hover{
+  color: var(--secondary-color);
 }
 
 @media (max-width: 28.75em) {
